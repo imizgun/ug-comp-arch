@@ -1,7 +1,17 @@
 global _start
 
+section .data 
+    msg db "Hello, Assembler"
+    
+
 section .text
 _start:
+    mov rax, 1
+    mov rdi, 1
+    mov rsi, msg
+    mov rdx, 16
+    syscall
+
     mov rax, 60
-    xor rdi, rdi
-    syscall         ; like exit(0) in C
+    mov rdi, 0
+    syscall
